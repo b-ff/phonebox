@@ -8,12 +8,12 @@ jQuery plugin which provides auto-formatting of Russian phone numbers in text fi
 
 To install plug-in:
 
- - Add jQuery library into <head> section of your document. As example:
+ - Add jQuery library into head section of your document. As example:
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
  - Upload script to your project folder, or use direct link from GitHub to include script 
-   into <head> section of your document:
+   into head section of your document:
 
 		<script src="jquery.phonebox.js"></script>
 
@@ -34,13 +34,13 @@ jQuery плагин, позволяющий автоматически форм�
 
 Для установки плагина необходимо:
 
- - Добавьте в секцию <head> вашего документа скрипт библиотеки jQuery если вы не используете её в своём проекте.
+ - Добавьте в секцию head вашего документа скрипт библиотеки jQuery если вы не используете её в своём проекте.
    Пример:
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
  - Загрузите скрипт плагина в папку для скриптов вашего проекта или используйте прямую ссылку на файл из GitHub чтобы
-   добавить скрипт плагина в секцию <head> вашего документа. Пример:
+   добавить скрипт плагина в секцию head вашего документа. Пример:
 
   	<script src="jquery.phonebox.js"></script>
 
