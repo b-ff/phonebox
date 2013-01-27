@@ -20,8 +20,8 @@ To install plug-in:
  - To initialize plug-in for a certain text field add this code into any place of your document:
 
   		jQuery(document).ready(function() {
-				jQuery("input#phonebox").phonebox({ showLocation: true });
-			});
+			jQuery("input#phonebox").phonebox({ showLocation: true });
+		});
 
       if "showLocation" parameter is set as true, the plug-in will show a window with the name of the city 
       determined by a code of the city in phone near a text field
@@ -48,8 +48,8 @@ jQuery плагин, позволяющий автоматически форм�
    вашего документа:
 
   		jQuery(document).ready(function() {
-				jQuery("input#phonebox").phonebox({ showLocation: true });
-			});
+			jQuery("input#phonebox").phonebox({ showLocation: true });
+		});
 
       Если параметр "showLocation" задан как true, плагин будет показывать под текстовым полем окно с названием
       города, определённым по коду города в введённом телефонном номере.
