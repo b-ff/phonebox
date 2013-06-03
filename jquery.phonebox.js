@@ -177,7 +177,7 @@
 		cityCodes[cityCodes.length] = ["ОРЛОВСКАЯ ОБЛАСТЬ",					"ОРЕЛ",								48622];
 		cityCodes[cityCodes.length] = ["ПЕНЗЕНСКАЯ ОБЛАСТЬ",				"ПЕНЗА",							8412];
 		cityCodes[cityCodes.length] = ["ПЕРМСКАЯ ОБЛАСТЬ",					"ПЕРМЬ",							3422];
-		cityCodes[cityCodes.length] = ["ПРИМОРСКИЙ КРАЙ",					"ВЛАДИВОСТОК",						4232];
+		cityCodes[cityCodes.length] = ["ПРИМОРСКИЙ КРАЙ",					"ВЛАДИВОСТОК",						423];
 		cityCodes[cityCodes.length] = ["ПСКОВСКАЯ ОБЛАСТЬ",					"ПСКОВ",							81122];
 		cityCodes[cityCodes.length] = ["ПСКОВСКАЯ ОБЛАСТЬ",					"ПСКОВ",							8112];
 		cityCodes[cityCodes.length] = ["РОСТОВСКАЯ ОБЛАСТЬ",				"РОСТОВ-НА-ДОНУ",					863];
