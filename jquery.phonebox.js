@@ -8,7 +8,8 @@
 
 		options = $.extend({
 
-			showLocation : true
+			showLocation : true,
+                        forceSeven: false,
 
     	}, options);
 
@@ -100,7 +101,7 @@
 					
 				}				
 
-
+                                if(options.forceSeven) { $(this).val($(this).val().replace(/^8/, '+7')); }
 
 			}
 
