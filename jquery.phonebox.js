@@ -31,6 +31,7 @@
 			if ($(this).is(":focus")) {
     			
     			var is_mobile = false;
+    			var is_global = $(this).val().match(/^(\+7|8).*$/) != null;
 
 				var string = remove_symbols($(this).val());
 
@@ -44,7 +45,7 @@
 						
 				}
 
-				if (string.length > 6) { $(this).val(check_mobile_codes($(this).val())); }
+				if (is_global) { $(this).val(check_mobile_codes($(this).val())); }
 
 				if ($(this).val().search(/\+?\d\(9[0-9]{2}\)/) != -1) { is_mobile = true; }
 
