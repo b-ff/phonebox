@@ -9,28 +9,29 @@
 		options = $.extend({
 
 			showLocation : true,
-                        forceSeven: false,
+            forceSeven: false
 
     	}, options);
 
 		this.addClass("phonebox");
 
 		this.bind('blur', function() {
-
 			$("div#phonebox_location").fadeOut(400,function() {
-	
 				$(this).remove();
-	
 			});	
-
 		});
 
-		this.bind('keyup', function() {
+		this.bind('keyup', function(event) {
 
-    	
+			// If we use arrows to navigate into phonebox or want to erase some
+			if ((event.keyCode >= 37 && event.keyCode <= 40) || event.keyCode == 8 || event.ctrlKey) { return; }
+
+			console.log(event.keyCode)
+			console.log(event)
+
 			if ($(this).is(":focus")) {
     			
-    			var is_mobile = false;
+    			var is_mobile = $(this).val().search(/\+?\d\(9[0-9]{2}\)/) != -1;
     			var is_global = $(this).val().match(/^(\+7|8).*$/) != null;
 
 				var string = remove_symbols($(this).val());
@@ -38,18 +39,14 @@
 				if (string == '') {
 
 					$("div#phonebox_location").fadeOut(400,function() {
-			
 						$(this).remove();
-			
 					});
 						
 				}
 
+				// Check for city or mobile codes
 				if (is_global) { $(this).val(check_mobile_codes($(this).val())); }
-
-				if ($(this).val().search(/\+?\d\(9[0-9]{2}\)/) != -1) { is_mobile = true; }
-
-				$(this).val(check_city_codes($(this).val()));
+				if (!is_mobile && is_global) { $(this).val(check_city_codes($(this).val())); }
 
 				if (!options.showLocation) { $("div#phonebox_location").remove(); }
 
@@ -102,7 +99,7 @@
 					
 				}				
 
-                                if(options.forceSeven) { $(this).val($(this).val().replace(/^8/, '+7')); }
+                if (options.forceSeven) { $(this).val($(this).val().replace(/^8/, '+7')); }
 
 			}
 
@@ -111,11 +108,7 @@
 	}
 
 	function remove_symbols(string) {
-
-		string = string.replace(/\D/g, '');
-
-		return string;
-
+		return string.replace(/\D/g, '');
 	}
 
 	function check_city_codes(string) {
@@ -265,104 +258,95 @@
 
 	function check_mobile_codes(string) {
 
-		var mobileCode = [];
-
-			mobileCode[0] = 900;
-			mobileCode[mobileCode.length] = 901;
-			mobileCode[mobileCode.length] = 902;
-			mobileCode[mobileCode.length] = 903;
-			mobileCode[mobileCode.length] = 904;
-			mobileCode[mobileCode.length] = 905;
-			mobileCode[mobileCode.length] = 906;
-			mobileCode[mobileCode.length] = 908;
-			mobileCode[mobileCode.length] = 909;
-			mobileCode[mobileCode.length] = 910;
-			mobileCode[mobileCode.length] = 911;
-			mobileCode[mobileCode.length] = 912;
-			mobileCode[mobileCode.length] = 913;
-			mobileCode[mobileCode.length] = 914;
-			mobileCode[mobileCode.length] = 915;
-			mobileCode[mobileCode.length] = 916;
-			mobileCode[mobileCode.length] = 917;
-			mobileCode[mobileCode.length] = 918;
-			mobileCode[mobileCode.length] = 919;
-			mobileCode[mobileCode.length] = 920;
-			mobileCode[mobileCode.length] = 921;
-			mobileCode[mobileCode.length] = 922;
-			mobileCode[mobileCode.length] = 923;
-			mobileCode[mobileCode.length] = 924;
-			mobileCode[mobileCode.length] = 925;
-			mobileCode[mobileCode.length] = 926;
-			mobileCode[mobileCode.length] = 927;
-			mobileCode[mobileCode.length] = 928;
-			mobileCode[mobileCode.length] = 929;
-			mobileCode[mobileCode.length] = 930;
-			mobileCode[mobileCode.length] = 931;
-			mobileCode[mobileCode.length] = 932;
-			mobileCode[mobileCode.length] = 933;
-			mobileCode[mobileCode.length] = 934;
-			mobileCode[mobileCode.length] = 936;
-			mobileCode[mobileCode.length] = 937;
-			mobileCode[mobileCode.length] = 938;
-			mobileCode[mobileCode.length] = 939;
-			mobileCode[mobileCode.length] = 941;
-			mobileCode[mobileCode.length] = 950;
-			mobileCode[mobileCode.length] = 951;
-			mobileCode[mobileCode.length] = 952;
-			mobileCode[mobileCode.length] = 953;
-			mobileCode[mobileCode.length] = 954;
-			mobileCode[mobileCode.length] = 955;
-			mobileCode[mobileCode.length] = 956;
-			mobileCode[mobileCode.length] = 958;
-			mobileCode[mobileCode.length] = 960;
-			mobileCode[mobileCode.length] = 961;
-			mobileCode[mobileCode.length] = 962;
-			mobileCode[mobileCode.length] = 963;
-			mobileCode[mobileCode.length] = 964;
-			mobileCode[mobileCode.length] = 965;
-			mobileCode[mobileCode.length] = 966;
-			mobileCode[mobileCode.length] = 967;
-			mobileCode[mobileCode.length] = 968;
-			mobileCode[mobileCode.length] = 970;
-			mobileCode[mobileCode.length] = 971;
-			mobileCode[mobileCode.length] = 980;
-			mobileCode[mobileCode.length] = 981;
-			mobileCode[mobileCode.length] = 982;
-			mobileCode[mobileCode.length] = 983;
-			mobileCode[mobileCode.length] = 984;
-			mobileCode[mobileCode.length] = 985;
-			mobileCode[mobileCode.length] = 987;
-			mobileCode[mobileCode.length] = 988;
-			mobileCode[mobileCode.length] = 989;
-			mobileCode[mobileCode.length] = 992;
-			mobileCode[mobileCode.length] = 993;
-			mobileCode[mobileCode.length] = 994;
-			mobileCode[mobileCode.length] = 995;
-			mobileCode[mobileCode.length] = 996;
-			mobileCode[mobileCode.length] = 997;
-			mobileCode[mobileCode.length] = 999;
+		var mobileCode = [
+			900,
+			901,
+			902,
+			903,
+			904,
+			905,
+			906,
+			908,
+			909,
+			910,
+			911,
+			912,
+			913,
+			914,
+			915,
+			916,
+			917,
+			918,
+			919,
+			920,
+			921,
+			922,
+			923,
+			924,
+			925,
+			926,
+			927,
+			928,
+			929,
+			930,
+			931,
+			932,
+			933,
+			934,
+			936,
+			937,
+			938,
+			939,
+			941,
+			950,
+			951,
+			952,
+			953,
+			954,
+			955,
+			956,
+			958,
+			960,
+			961,
+			962,
+			963,
+			964,
+			965,
+			966,
+			967,
+			968,
+			970,
+			971,
+			980,
+			981,
+			982,
+			983,
+			984,
+			985,
+			987,
+			988,
+			989,
+			992,
+			993,
+			994,
+			995,
+			996,
+			997,
+			999
+		];
 
 		if (/\([0-9]{3,5}/.exec(string) == null) { // If we don't have marked city code in string
 
 			for(var i=0; i<mobileCode.length; i++) { // For every city code
-
 				if (remove_symbols(string).search(mobileCode[i]) <= 1 && remove_symbols(string).search(mobileCode[i]) > 0) { // If code exists in the first part of number
-
 					is_mobile = true;
-
-					if (string.search(/\+/) == 0) { string = "+"+remove_symbols(string); } else { string = remove_symbols(string); } // Remove all symbols from string but save "+"
-
+					string = ((string.search(/\+/) == 0) ? "+" : "") + remove_symbols(string); // Remove all symbols from string but save "+"
 					string = string.replace(mobileCode[i], '('+mobileCode[i]+')'); // Wrap city code to ()
-
 				}
-
-
 			}
-
 		}
 
 		return string;
-
 	}	
 
 })(jQuery);
